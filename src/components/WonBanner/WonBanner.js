@@ -1,7 +1,7 @@
 import React from "react";
 import BottomBanner from "../BottomBanner";
 
-function WonBanner({ guessCount }) {
+function WonBanner({ guessCount, restartGame }) {
   return (
     <BottomBanner status="happy">
       <p>
@@ -12,6 +12,9 @@ function WonBanner({ guessCount }) {
         </strong>
         .
       </p>
+      <button className="restart" onClick={() => restartGame()}>
+        Restart
+      </button>
     </BottomBanner>
   );
 }

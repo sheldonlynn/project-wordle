@@ -1,7 +1,11 @@
 import React from "react";
 
-function GuessInput({ handleSubmitGuess, gameEndStatus }) {
-  const [tentativeGuess, setTentativeGuess] = React.useState("");
+function GuessInput({
+  handleSubmitGuess,
+  gameEndStatus,
+  tentativeGuess,
+  setTentativeGuess,
+}) {
   const [error, setError] = React.useState("");
 
   function handleChange(event) {
@@ -13,6 +17,8 @@ function GuessInput({ handleSubmitGuess, gameEndStatus }) {
 
     if (guessString.length > 5) {
       setError("Please enter exactly 5 characters.");
+    } else {
+      setError("");
     }
     setTentativeGuess(guessString);
   }
@@ -38,8 +44,6 @@ function GuessInput({ handleSubmitGuess, gameEndStatus }) {
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         required
-        minLength={5}
-        maxLength={5}
         id="guess-input"
         type="text"
         value={tentativeGuess}
